@@ -1,8 +1,9 @@
-public static void main {
+public class main{
+    public static void main {
 
-    //enter name of town
-    Scanner input = new Scanner (System.in);
-    System.out.print("Input what you would like to name your town: ")
+        //enter name of town
+        Scanner input = new Scanner (System.in);
+        System.out.print("Input what you would like to name your town: ")
     String townName = input.next();
     System.out.println("The name of the town is" + townName);
 
@@ -33,4 +34,4 @@ public static void main {
     System.out.println("Yours towns population is: " + populationSize);
 
     }
-
+}
