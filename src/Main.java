@@ -4,14 +4,14 @@ public static void main {
     Scanner input = new Scanner (System.in);
     System.out.print("Input what you would like to name your town: ")
     String townName = input.next();
-    System.out.println("The name of the town is" + townName);
+    System.out.println("The name of your town is" + townName);
 
     //starting population
-    int populationSize = 100;
+    int totalPeople = 100;
 
-    while (born > die){
-    populationSize=populationSize+1;
-    return populationSize;
+    while (born > die) {
+        totalPeople = totalPeople + 1;
+        return totalPeople;
     }
     //add new kids to the population  = born
     //take away numbers if people die = die
