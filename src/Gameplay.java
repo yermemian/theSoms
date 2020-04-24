@@ -12,14 +12,14 @@ public class Gameplay {
     townName = null;
   }
 
-  public Gameplay(ArrayList<Person> pop, String name){
-    totalPeople = pop.size();
-    population = pop;
+  public Gameplay(int size, String name){
+    totalPeople = size;
+    population = new ArrayList<Person>(100);
     townName = name;
   }
 
   public void born(Person parent1, Person parent2, String name){
-    Person baby = new Person();
+    Person baby = new Person(name);
     population.add(baby);
     totalPeople++;
   }
@@ -28,7 +28,11 @@ public class Gameplay {
     population.remove(person);
     totalPeople--;
   }
-  
+
+  public int populationSize(){
+    return totalPeople;
+  }
+
 
 
 }
