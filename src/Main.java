@@ -1,36 +1,53 @@
-public static void main {
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import Gameplay;
+import Person;
 
+
+
+public class Driver {
+  public static void main (String[] args){
     //enter name of town
     Scanner input = new Scanner (System.in);
     System.out.print("Input what you would like to name your town: ")
     String townName = input.next();
     System.out.println("The name of the town is" + townName);
+    System.out.println("How many people do you want in your town? ");
+    int popSize = input.nextInt();
 
-    //starting population
-    int populationSize = 100;
+    // initializing and adding to an array list denoting town population based on size
+    ArrayList<Person> gamePopulation = new ArrayList<Person>(popSize + 10000);
 
-    while (born > die){
-    populationSize=populationSize+1;
-    return populationSize;
+
+    //Person person;
+    Person person;
+    for (int i = 0; i < popSize; i++){
+      //person contructor to get the person
+      person = new Person();
+      //add the person to the game
+      gamePopulation.add(i, person);
     }
-    //add new kids to the population  = born
-    //take away numbers if people die = die
+    //create a new instance of Gameplay passing in the array list of the town's population
+    Gameplay game = new Gameplay(gamePopulation, townName);
+    // main game loop, the game keeps going as long as there is at least one person alive
 
-    while (populationSize > 0){
-    //keep the game running
-    processInput();
-    update();
-    render();
+    while (game.totalPeople > 0) {
+      // pauses the loop for 10 seconds so it doesnt overwhelm the computer
+      TimeUnit.SECONDS.sleep(10);
+      System.out.println("How many people are born? ");
+      int bornNumber = input.nextInt();
+      for(int b = 0; b < bornNumber; b++){
+        Gameplay.born();
+      }
+      System.out.println("How many people die?");
+      int dieNumber = input.nextInt();
+      for(int d = game.totalPeople-1; d > (game.totalPeople - dieNumber); d--){
+        person = game.get(d);
+        Gameplay.die(person);
+      }
+      System.out.println("Population: " + String(game.totalPeople));
     }
-    // not really sure about this part... I googled how to make a game loop...
-    // so I think it might make our game run,
-    // but im not sure how to test it without the other parts of the code
-    // and it seems too simple to me but idk
-
-
-    //print out info about family and individual people
-    System.out.println("Family a has" + length(a) + " people in it");
-    System.out.println("Yours towns population is: " + populationSize);
-
-    }
+  }
+}
 

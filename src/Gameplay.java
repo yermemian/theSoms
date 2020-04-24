@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class Gameplay {
 
-  private int totalPeople;
+  public int totalPeople;
+ // private int totalPeople;
   private ArrayList<Person> population;
   private String townName;
 
