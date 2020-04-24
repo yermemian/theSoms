@@ -1,5 +1,17 @@
 public class Person {
-    public static void main(String[] args){
-        System.out.println("I love java!");
+    private String name;
+    private int age;
+
+    public Person(String name){
+        this.name = name;
+        this.age = 0;
+    }
+
+    public static String getName(Person dude){
+        return dude.name;
+    }
+
+    public static String getAge(Person dude){
+        return dude.age;
     }
 }
