@@ -19,8 +19,6 @@ public class Driver {
     // initializing and adding to an array list denoting town population based on size
     ArrayList<Person> gamePopulation = new ArrayList<Person>(popSize + 10000);
 
-
-    //Person person;
     Person person;
     for (int i = 0; i < popSize; i++){
       //person contructor to get the person
