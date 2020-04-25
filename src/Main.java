@@ -10,7 +10,7 @@ public class Driver {
   public static void main (String[] args){
     //enter name of town
     Scanner input = new Scanner (System.in);
-    System.out.print("Input what you would like to name your town: ")
+    System.out.print("Input what you would like to name your town: ");
     String townName = input.next();
     System.out.println("The name of the town is" + townName);
     System.out.println("How many people do you want in your town? ");
@@ -48,4 +48,3 @@ public class Driver {
     }
   }
 }
-

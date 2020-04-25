@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Gameplay {
 
-  public int totalPeople;
+  public static int totalPeople;
  // private int totalPeople;
-  private ArrayList<Person> population;
+  private static ArrayList<Person> population;
   private String townName;
 
   public Gameplay(){
@@ -19,13 +19,13 @@ public class Gameplay {
     townName = name;
   }
 
-  public void born(Person parent1, Person parent2, String name){
+  public static void born(Person parent1, Person parent2, String name){
     Person baby = new Person(name);
     population.add(baby);
     totalPeople++;
   }
 
-  public void die(Person person){
+  public static void die(Person person){
     population.remove(person);
     totalPeople--;
   }
