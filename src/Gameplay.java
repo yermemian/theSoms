@@ -18,14 +18,14 @@ public class Gameplay {
     townName = name;
   }
 
-  public static void born(String name){
+  public static void born(Person parent1, Person parent2, String name){
     Person baby = new Person(name);
     population.add(baby);
     totalPeople++;
   }
 
   public static void born(){
-    born(null);
+    born(null, null, null);
   }
 
   public static void die(Person person){

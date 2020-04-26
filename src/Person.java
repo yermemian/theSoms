@@ -11,7 +11,7 @@ public class Person {
         return dude.name;
     }
 
-    public static String getAge(Person dude){
+    public static int getAge(Person dude){
         return dude.age;
     }
 }
