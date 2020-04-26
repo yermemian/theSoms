@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+//import java.Gameplay;
+//import java.Person;
 
 
 
-
-public class Driver {
-  public static void main (String[] args){
+public class Main {
+  public static void main (String[] args) throws InterruptedException {
     //enter name of town
     Scanner input = new Scanner (System.in);
     System.out.print("Input what you would like to name your town: ");
@@ -21,7 +22,7 @@ public class Driver {
     Person person;
     for (int i = 0; i < popSize; i++){
       //person contructor to get the person
-      person = new Person();
+      person = new Person(String name);
       //add the person to the game
       gamePopulation.add(i, person);
     }
