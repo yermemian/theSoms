@@ -27,4 +27,17 @@ public class TestGameplay {
         Gameplay.die(Dave);
         assertEquals(1, pop.size());
     }
+
+    @Test
+    public void getTotalPeople() {
+        Person Steven = new Person("Steven");
+        Person Jamie = new Person("Jamie");
+        Person Jessica = new Person ("Jessica");
+        pop.add(Steven);
+        pop.add(Jamie);
+        pop.add(Jessica);
+        System.out.println(pop.toString());
+        System.out.println(pop.size());
+        assertEquals(3, Gameplay.getTotalPeople());
+    }
 }

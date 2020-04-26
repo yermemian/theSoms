@@ -33,7 +33,7 @@ public class Gameplay {
     totalPeople--;
   }
 
-  public int getTotalPeople(){
+  public static int getTotalPeople(){
     return totalPeople;
   }
 
