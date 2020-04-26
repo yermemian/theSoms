@@ -30,7 +30,7 @@ public class Driver {
     Gameplay game = new Gameplay(gamePopulation, townName);
     // main game loop, the game keeps going as long as there is at least one person alive
 
-    while (game.totalPeople > 0) {
+    while (game.getTotalPeople() > 0) {
       // pauses the loop for 10 seconds so it doesnt overwhelm the computer
       TimeUnit.SECONDS.sleep(10);
       System.out.println("How many people are born? ");
@@ -40,11 +40,11 @@ public class Driver {
       }
       System.out.println("How many people die?");
       int dieNumber = input.nextInt();
-      for(int d = game.totalPeople-1; d > (game.totalPeople - dieNumber); d--){
+      for(int d = game.getTotalPeople()-1; d > (game.getTotalPeople() - dieNumber); d--){
         person = game.get(d);
         Gameplay.die(person);
       }
-      System.out.println("Population: " + String(game.totalPeople));
+      System.out.println("Population: " + game.getTotalPeople());
     }
   }
 }

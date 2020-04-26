@@ -2,8 +2,7 @@ import java.util.ArrayList;
 
 public class Gameplay {
 
-  public static int totalPeople;
- // private int totalPeople;
+  private static int totalPeople;
   private static ArrayList<Person> population;
   private String townName;
 
@@ -13,16 +12,20 @@ public class Gameplay {
     townName = null;
   }
 
-  public Gameplay(int size, String name){
-    totalPeople = size;
-    population = new ArrayList<Person>(100);
+  public Gameplay(ArrayList<Person> pop, String name){
+    totalPeople = pop.size();
+    population = pop;
     townName = name;
   }
 
-  public static void born(Person parent1, Person parent2, String name){
+  public static void born(String name){
     Person baby = new Person(name);
     population.add(baby);
     totalPeople++;
+  }
+
+  public static void born(){
+    born(null);
   }
 
   public static void die(Person person){
@@ -30,8 +33,12 @@ public class Gameplay {
     totalPeople--;
   }
 
-  public int populationSize(){
+  public int getTotalPeople(){
     return totalPeople;
+  }
+
+  public Person get(int i){
+    return population.get(i);
   }
 
 
