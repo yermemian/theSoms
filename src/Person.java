@@ -79,22 +79,6 @@ public class Person {
         System.out.println("Happy Birthday, " + dude.name + ".");
     }
 
-    public Boolean isParent(Person compareto){
-        if ((this.father == compareto)||(this.mother == compareto)){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public Boolean isSibling(Person compareto){
-        if ((this.father.children.contains(compareto))||(this.mother.children.contains(compareto))){
-            return true;
-        } else{
-            return false;
-        }
-    }
-
     public Boolean reproduce(Person partner,String baby){
         Scanner keyboard = new Scanner(System.in);
         Boolean areDifferentSexes = (((this.isFemale)||(partner.isFemale))&& (!((this.isFemale)&&(partner.isFemale))));
