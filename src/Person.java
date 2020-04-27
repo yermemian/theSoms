@@ -67,7 +67,7 @@ public class Person {
         }
     }
 
-    public Person reproduce(Person partner){
+    public Boolean reproduce(Person partner){
         Scanner keyboard = new Scanner(System.in);
         Boolean areDifferentSexes = (((this.isFemale)||(partner.isFemale))&& (!((this.isFemale)&&(partner.isFemale))));
         Boolean areOfAge = ((this.age > 16) && (partner.age > 16));
@@ -85,17 +85,17 @@ public class Person {
             Person child = new Person(name, father, mother);
             this.children.add(child);
             partner.children.add(child);
+            return true;
         } else if(!areDifferentSexes){
             System.out.println("These people are biological incapable of mating!");
-            return null;
+            return false;
         } else if(!areOfAge){
             System.out.println("Knock it out, youngsters!");
-            return null;
+            return false;
         } else if(!areAlive){
             System.out.println("Dead people can't reproduce!");
-            return null;
+            return false;
         }
-        return null;
     }
 
     public void death(){
