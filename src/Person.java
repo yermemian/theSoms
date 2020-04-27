@@ -11,7 +11,13 @@ public class Person {
     public Person(String name){
         this.name = name;
         this.age = 0;
-        this.isFemale = null;
+        Random god = new Random();
+        int rand = Random.nextInt(2)
+        if (rand == 0){
+            this.isFemale = true;
+        } else{
+            this.isFemale = false;
+        }
         this.father = null;
         this.mother = null;
         this.children = null;
@@ -31,7 +37,13 @@ public class Person {
     public Person(String name, int age){
         this.name = name;
         this.age = age;
-        this.isFemale = null;
+        Random god = new Random();
+        int rand = Random.nextInt(2)
+        if (rand == 0){
+            this.isFemale = true;
+        } else{
+            this.isFemale = false;
+        }
         this.father = null;
         this.mother = null;
         this.children = null;
@@ -41,7 +53,13 @@ public class Person {
     public Person(String name, Person mother, Person father){
         this.name = name;
         this.age = 0;
-        this.isFemale = null;
+        Random god = new Random();
+        int rand = Random.nextInt(2)
+        if (rand == 0){
+            this.isFemale = true;
+        } else{
+            this.isFemale = false;
+        }
         this.father = father;
         this.mother = mother;
         this.children = null;
