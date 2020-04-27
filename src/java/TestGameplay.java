@@ -131,8 +131,8 @@ public class TestGameplay {
 
     @Test
     public void reproduceDead() {
-        Person June = new Person("June");
-        Person Jeff = new Person("Jeff");
+        Person June = new Person("June",20,true);
+        Person Jeff = new Person("Jeff",20,false);
         Gameplay game = new Gameplay(pop, "test");
         game.die(Jeff);
         assertFalse(Jeff.reproduce(June));
@@ -140,8 +140,8 @@ public class TestGameplay {
 
     @Test
     public void reproduceYoung() {
-        Person June = new Person("June", 15);
-        Person Jeff = new Person("Jeff", 16);
+        Person June = new Person("June", 15, true);
+        Person Jeff = new Person("Jeff", 16, false);
         assertFalse(June.reproduce(Jeff));
     }
 
