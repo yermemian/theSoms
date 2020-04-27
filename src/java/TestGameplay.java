@@ -147,10 +147,8 @@ public class TestGameplay {
 
     @Test
     public void reproduceSameSex() {
-        Person June = new Person("June", 30);
-        Person Danielle = new Person("Danielle", 30);
-        June.isFemale = true;
-        Danielle.isFemale = true;
+        Person June = new Person("June", 30, true);
+        Person Danielle = new Person("Danielle", 30, true);
         assertFalse(June.reproduce(Danielle));
     }
 
