@@ -135,14 +135,14 @@ public class TestGameplay {
         Person Jeff = new Person("Jeff");
         Gameplay game = new Gameplay(pop, "test");
         game.die(Jeff);
-        assertEquals("Dead people can't reproduce!", Jeff.reproduce(June));
+        assertFalse(Jeff.reproduce(June));
     }
 
     @Test
     public void reproduceYoung() {
         Person June = new Person("June", 15);
         Person Jeff = new Person("Jeff", 16);
-        assertEquals("Knock it out, youngsters!", June.reproduce(Jeff));
+        assertFalse(June.reproduce(Jeff));
     }
 
     @Test
@@ -151,7 +151,7 @@ public class TestGameplay {
         Person Danielle = new Person("Danielle", 30);
         June.isFemale = true;
         Danielle.isFemale = true;
-        assertEquals("These people are biological incapable of mating!", June.reproduce(Danielle));
+        assertFalse(June.reproduce(Danielle));
     }
 
     @Test
@@ -160,6 +160,6 @@ public class TestGameplay {
         Person Jeff = new Person("Jeff", 35);
         June.isFemale = true;
         Jeff.isFemale = false;
-        assertEquals("Congratulations! Enter a name for your new child!", June.reproduce(Jeff));
+        assertTrue(June.reproduce(Jeff));
     }
 }
