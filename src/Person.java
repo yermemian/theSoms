@@ -72,6 +72,7 @@ public class Person {
         Boolean areDifferentSexes = (((this.isFemale)||(partner.isFemale))&& (!((this.isFemale)&&(partner.isFemale))));
         Boolean areOfAge = ((this.age > 16) && (partner.age > 16));
         Boolean areAlive = (this.isAlive && partner.isAlive);
+        Boolean didTheyReproduce = false;
         if (areDifferentSexes && areOfAge && areAlive){
             System.out.println("Congratulations! Enter a name for your new child!");
             String name = keyboard.nextLine();
@@ -85,17 +86,15 @@ public class Person {
             Person child = new Person(name, father, mother);
             this.children.add(child);
             partner.children.add(child);
-            return true;
+            didTheyReproduce = true;
         } else if(!areDifferentSexes){
             System.out.println("These people are biological incapable of mating!");
-            return false;
         } else if(!areOfAge){
             System.out.println("Knock it out, youngsters!");
-            return false;
         } else if(!areAlive){
             System.out.println("Dead people can't reproduce!");
-            return false;
         }
+        return didTheyReproduce;
     }
 
     public void death(){
