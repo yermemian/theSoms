@@ -21,7 +21,8 @@ public class Gameplay {
 
   //create new person to add to population
   public static void born(Person parent1, Person parent2, String name){
-    Person baby = new Person(name);
+    parent1.reproduce(parent2);
+    Person baby = new Person(name, parent1, parent2);
     population.add(baby);
     totalPeople++;
   }
