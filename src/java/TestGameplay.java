@@ -7,6 +7,24 @@ public class TestGameplay {
 
     ArrayList<Person> pop = new ArrayList<>(100);
 
+    @Test
+    public void getTotalPeopleInitial() {
+        Gameplay game = new Gameplay(pop, "test");
+        assertEquals(0, game.getTotalPeople());
+    }
+
+    @Test
+    public void getTotalPeople() {
+        Person Steven = new Person("Steven");
+        Person Jamie = new Person("Jamie");
+        Person Jessica = new Person ("Jessica");
+        pop.add(Steven);
+        pop.add(Jamie);
+        pop.add(Jessica);
+        Gameplay game = new Gameplay(pop, "test");
+        assertEquals(3, game.getTotalPeople());
+    }
+
     @Test // should test if baby is added to pop and if population size increases
     public void born() {
         Person Jane = new Person("Jane");
@@ -31,16 +49,85 @@ public class TestGameplay {
     }
 
     @Test
-    public void getTotalPeople() {
-        Person Steven = new Person("Steven");
-        Person Jamie = new Person("Jamie");
-        Person Jessica = new Person ("Jessica");
-        pop.add(Steven);
-        pop.add(Jamie);
-        pop.add(Jessica);
+    public void getName() {
+        Person Bartholomew = new Person("Bartholomew");
+        assertEquals("Bartholomew", Person.getName(Bartholomew));
+    }
+
+    @Test
+    public void getAge() {
+        Person Bartholomew = new Person("Bartholomew");
+        Bartholomew.age = 7;
+        assertEquals(7, Person.getAge(Bartholomew));
+    }
+
+    @Test
+    public void getAgeInitial() {
+        Person Jane = new Person("Jane");
+        Person John = new Person("John");
         Gameplay game = new Gameplay(pop, "test");
-        System.out.println(pop.toString());
-        System.out.println(pop.size());
-        assertEquals(3, game.getTotalPeople());
+        game.born(Jane, John, "Billy");
+        assertEquals(0, Person.getAge(pop.get(0)));
+    }
+
+    @Test
+    public void happyBirthday() {
+        Person Dave = new Person("Dave");
+        Dave.age = 49;
+        Person.happyBirthday(Dave);
+        assertEquals(50, Person.getAge(Dave));
+    }
+
+    @Test
+    public void isParentTrue() {
+        Person Jane = new Person("Jane");
+        Person John = new Person("John");
+        Gameplay game = new Gameplay(pop, "test");
+        game.born(Jane, John, "Billy");
+        assertTrue(John.isParent(pop.get(0)));
+        assertTrue(Jane.isParent(pop.get(0)));
+    }
+
+    @Test
+    public void isParentFalse() {
+        Person Jane = new Person("Jane");
+        Person John = new Person("John");
+        Gameplay game = new Gameplay(pop, "test");
+        game.born(Jane, John, "Billy");
+        Person Jimmy = new Person("Jimmy");
+        assertFalse(Jimmy.isParent(pop.get(0)));
+    }
+
+    @Test
+    public void isSiblingTrue() {
+        Person Jane = new Person("Jane");
+        Person John = new Person("John");
+        Gameplay game = new Gameplay(pop, "test");
+        game.born(Jane, John, "Billy");
+        game.born(Jane, John, "Queen Elizabeth");
+        assertTrue(pop.get(0).isSibling(pop.get(1)));
+    }
+
+    @Test
+    public void isSiblingFalse() {
+        Person Jane = new Person("Jane");
+        Person John = new Person("John");
+        Gameplay game = new Gameplay(pop, "test");
+        game.born(Jane, John, "Billy");
+        Person Jimmy = new Person("Jimmy");
+        Person Ellie = new Person("Ellie");
+        game.born(Jimmy, Ellie, "Bobby");
+        assertFalse(pop.get(0).isSibling(pop.get(1)));
+    }
+
+    @Test
+    public void isHalfSibling() {
+        Person Jane = new Person("Jane");
+        Person John = new Person("John");
+        Gameplay game = new Gameplay(pop, "test");
+        game.born(Jane, John, "Billy");
+        Person Jimmy = new Person("Jimmy");
+        game.born(Jimmy, Jane, "Bobby");
+        assertTrue(pop.get(0).isSibling(pop.get(1)));
     }
 }

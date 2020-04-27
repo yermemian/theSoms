@@ -1,7 +1,7 @@
 import java.util.*;
 public class Person {
     private String name;
-    private int age;
+    public int age;
     private Boolean isFemale;
     private Person father;
     private Person mother;
@@ -20,7 +20,7 @@ public class Person {
         return dude.age;
     }
 
-    public static int happyBirthday(Person dude){
+    public static void happyBirthday(Person dude){
         dude.age++;
         System.out.println("Happy Birthday, " + dude.name + ".");
     }
@@ -28,7 +28,7 @@ public class Person {
     public Boolean isParent(Person compareto){
         if ((this.father == compareto)||(this.mother == compareto){
             return true
-        } else{
+        } else {
             return false
         }
     }
