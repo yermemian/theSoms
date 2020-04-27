@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 public class TestGameplay {
-
     ArrayList<Person> pop = new ArrayList<>(100);
+    Gameplay gp = new Gameplay();
 
     @Test // should test if baby is added to pop and if population size increases
     public void born() {
@@ -13,7 +13,7 @@ public class TestGameplay {
         Person John = new Person("John");
         pop.add(Jane);
         pop.add(John);
-        Gameplay.born(Jane, John, "Billy");
+        gp.born(Jane, John, "Billy");
         assertEquals(3, pop.size());
     }
 
@@ -24,7 +24,7 @@ public class TestGameplay {
         pop.add(Dave);
         pop.add(Jessica);
         assertEquals(2, pop.size());
-        Gameplay.die(Dave);
+        gp.die(Dave);
         assertEquals(1, pop.size());
     }
 
@@ -38,6 +38,6 @@ public class TestGameplay {
         pop.add(Jessica);
         System.out.println(pop.toString());
         System.out.println(pop.size());
-        assertEquals(3, Gameplay.getTotalPeople());
+        assertEquals(3, gp.getTotalPeople());
     }
 }
