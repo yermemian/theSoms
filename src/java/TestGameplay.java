@@ -62,8 +62,8 @@ public class TestGameplay {
 
     @Test
     public void getAgeInitial() {
-        Person Jane = new Person("Jane");
-        Person John = new Person("John");
+        Person Jane = new Person("Jane",20,true);
+        Person John = new Person("John",20,false);
         Gameplay game = new Gameplay(pop, "test");
         game.born(Jane, John, "Billy");
         assertEquals(0, Person.getAge(pop.get(0)));
@@ -120,8 +120,8 @@ public class TestGameplay {
 
     @Test
     public void isHalfSibling() {
-        Person Jane = new Person("Jane");
-        Person John = new Person("John");
+        Person Jane = new Person("Jane",20,true);
+        Person John = new Person("John",20,false);
         Gameplay game = new Gameplay(pop, "test");
         game.born(Jane, John, "Billy");
         Person Jimmy = new Person("Jimmy");
@@ -135,21 +135,21 @@ public class TestGameplay {
         Person Jeff = new Person("Jeff",20,false);
         Gameplay game = new Gameplay(pop, "test");
         game.die(Jeff);
-        assertFalse(Jeff.reproduce(June));
+        assertFalse(Jeff.reproduce(June,"baby"));
     }
 
     @Test
     public void reproduceYoung() {
         Person June = new Person("June", 15, true);
         Person Jeff = new Person("Jeff", 16, false);
-        assertFalse(June.reproduce(Jeff));
+        assertFalse(June.reproduce(Jeff,"baby"));
     }
 
     @Test
     public void reproduceSameSex() {
         Person June = new Person("June", 30, true);
         Person Danielle = new Person("Danielle", 30, true);
-        assertFalse(June.reproduce(Danielle));
+        assertFalse(June.reproduce(Danielle,"baby"));
     }
 
     @Test
@@ -158,6 +158,6 @@ public class TestGameplay {
         Person Jeff = new Person("Jeff", 35);
         June.isFemale = true;
         Jeff.isFemale = false;
-        assertTrue(June.reproduce(Jeff));
+        assertTrue(June.reproduce(Jeff,"baby"));
     }
 }

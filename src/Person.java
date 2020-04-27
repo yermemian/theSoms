@@ -12,7 +12,7 @@ public class Person {
         this.name = name;
         this.age = 0;
         Random god = new Random();
-        int rand = Random.nextInt(2)
+        int rand = god.nextInt(2);
         if (rand == 0){
             this.isFemale = true;
         } else{
@@ -38,7 +38,7 @@ public class Person {
         this.name = name;
         this.age = age;
         Random god = new Random();
-        int rand = Random.nextInt(2)
+        int rand = god.nextInt(2);
         if (rand == 0){
             this.isFemale = true;
         } else{
@@ -54,7 +54,7 @@ public class Person {
         this.name = name;
         this.age = 0;
         Random god = new Random();
-        int rand = Random.nextInt(2)
+        int rand = god.nextInt(2);
         if (rand == 0){
             this.isFemale = true;
         } else{
@@ -95,7 +95,7 @@ public class Person {
         }
     }
 
-    public Boolean reproduce(Person partner){
+    public Boolean reproduce(Person partner,String baby){
         Scanner keyboard = new Scanner(System.in);
         Boolean areDifferentSexes = (((this.isFemale)||(partner.isFemale))&& (!((this.isFemale)&&(partner.isFemale))));
         Boolean areOfAge = ((this.age > 16) && (partner.age > 16));
@@ -103,7 +103,7 @@ public class Person {
         Boolean didTheyReproduce = false;
         if (areDifferentSexes && areOfAge && areAlive){
             System.out.println("Congratulations! Enter a name for your new child!");
-            String name = keyboard.nextLine();
+            String name = baby;
             if (this.isFemale){
                 Person mother = this;
                 Person father = partner;
