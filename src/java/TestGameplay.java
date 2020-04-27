@@ -13,7 +13,8 @@ public class TestGameplay {
         Person John = new Person("John");
         pop.add(Jane);
         pop.add(John);
-        Gameplay.born(Jane, John, "Billy");
+        Gameplay game = new Gameplay(pop, "test");
+        game.born(Jane, John, "Billy");
         assertEquals(3, pop.size());
     }
 
@@ -23,8 +24,9 @@ public class TestGameplay {
         Person Jessica = new Person("Jessica");
         pop.add(Dave);
         pop.add(Jessica);
+        Gameplay game = new Gameplay(pop, "test");
         assertEquals(2, pop.size());
-        Gameplay.die(Dave);
+        game.die(Dave);
         assertEquals(1, pop.size());
     }
 
@@ -36,8 +38,9 @@ public class TestGameplay {
         pop.add(Steven);
         pop.add(Jamie);
         pop.add(Jessica);
+        Gameplay game = new Gameplay(pop, "test");
         System.out.println(pop.toString());
         System.out.println(pop.size());
-        assertEquals(3, Gameplay.getTotalPeople());
+        assertEquals(3, game.getTotalPeople());
     }
 }

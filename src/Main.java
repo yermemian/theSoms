@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-import java.Gameplay;
-import java.Person;
 
 
 
@@ -22,7 +20,7 @@ public class Main {
     Person person;
     for (int i = 0; i < popSize; i++){
       //person contructor to get the person
-      person = new Person(String name);
+      person = new Person("String name");
       //add the person to the game
       gamePopulation.add(i, person);
     }
