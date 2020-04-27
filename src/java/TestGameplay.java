@@ -27,8 +27,8 @@ public class TestGameplay {
 
     @Test // should test if baby is added to pop and if population size increases
     public void born() {
-        Person Jane = new Person("Jane");
-        Person John = new Person("John");
+        Person Jane = new Person("Jane", 20, true);
+        Person John = new Person("John",20,false);
         pop.add(Jane);
         pop.add(John);
         Gameplay game = new Gameplay(pop, "test");

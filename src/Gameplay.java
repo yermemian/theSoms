@@ -35,6 +35,7 @@ public class Gameplay {
   //remove person from population
   public static void die(Person person){
     population.remove(person);
+    person.death();
     totalPeople--;
   }
 

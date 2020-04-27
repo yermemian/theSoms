@@ -18,6 +18,16 @@ public class Person {
         this.isAlive = true;
     }
 
+    public Person(String name, int age, boolean sex){
+        this.name = name;
+        this.age = age;
+        this.isFemale = sex;
+        this.father = null;
+        this.mother = null;
+        this.children = null;
+        this.isAlive = true;
+    }
+
     public Person(String name, int age){
         this.name = name;
         this.age = age;
