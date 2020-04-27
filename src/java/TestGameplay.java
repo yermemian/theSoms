@@ -78,8 +78,8 @@ public class TestGameplay {
 
     @Test
     public void isParentTrue() {
-        Person Jane = new Person("Jane");
-        Person John = new Person("John");
+        Person Jane = new Person("Jane",20,true);
+        Person John = new Person("John",20,false);
         Gameplay game = new Gameplay(pop, "test");
         game.born(Jane, John, "Billy");
         assertTrue(John.isParent(pop.get(0)));
@@ -98,8 +98,8 @@ public class TestGameplay {
 
     @Test
     public void isSiblingTrue() {
-        Person Jane = new Person("Jane");
-        Person John = new Person("John");
+        Person Jane = new Person("Jane",20,true);
+        Person John = new Person("John",20,false);
         Gameplay game = new Gameplay(pop, "test");
         game.born(Jane, John, "Billy");
         game.born(Jane, John, "Queen Elizabeth");
@@ -108,12 +108,12 @@ public class TestGameplay {
 
     @Test
     public void isSiblingFalse() {
-        Person Jane = new Person("Jane");
-        Person John = new Person("John");
+        Person Jane = new Person("Jane",20,true);
+        Person John = new Person("John",20,false);
         Gameplay game = new Gameplay(pop, "test");
         game.born(Jane, John, "Billy");
-        Person Jimmy = new Person("Jimmy");
-        Person Ellie = new Person("Ellie");
+        Person Jimmy = new Person("Jimmy",20,false);
+        Person Ellie = new Person("Ellie",20,true);
         game.born(Jimmy, Ellie, "Bobby");
         assertFalse(pop.get(0).isSibling(pop.get(1)));
     }
@@ -154,10 +154,8 @@ public class TestGameplay {
 
     @Test
     public void reproduceSuccess() {
-        Person June = new Person("June", 30);
-        Person Jeff = new Person("Jeff", 35);
-        June.isFemale = true;
-        Jeff.isFemale = false;
+        Person June = new Person("June", 30,true);
+        Person Jeff = new Person("Jeff", 35,false);
         assertTrue(June.reproduce(Jeff,"baby"));
     }
 }

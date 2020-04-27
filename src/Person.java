@@ -20,7 +20,7 @@ public class Person {
         }
         this.father = null;
         this.mother = null;
-        this.children = null;
+        this.children = new HashSet<Person>();
         this.isAlive = true;
     }
 
@@ -30,7 +30,7 @@ public class Person {
         this.isFemale = sex;
         this.father = null;
         this.mother = null;
-        this.children = null;
+        this.children = new HashSet<Person>();
         this.isAlive = true;
     }
 
@@ -46,7 +46,7 @@ public class Person {
         }
         this.father = null;
         this.mother = null;
-        this.children = null;
+        this.children = new HashSet<Person>();
         this.isAlive = true;
     }
 
@@ -62,7 +62,7 @@ public class Person {
         }
         this.father = father;
         this.mother = mother;
-        this.children = null;
+        this.children = new HashSet<Person>();
         this.isAlive = true;
     }
 
