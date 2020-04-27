@@ -56,8 +56,7 @@ public class TestGameplay {
 
     @Test
     public void getAge() {
-        Person Bartholomew = new Person("Bartholomew");
-        Bartholomew.age = 7;
+        Person Bartholomew = new Person("Bartholomew", 7);
         assertEquals(7, Person.getAge(Bartholomew));
     }
 
@@ -72,8 +71,7 @@ public class TestGameplay {
 
     @Test
     public void happyBirthday() {
-        Person Dave = new Person("Dave");
-        Dave.age = 49;
+        Person Dave = new Person("Dave", 49);
         Person.happyBirthday(Dave);
         assertEquals(50, Person.getAge(Dave));
     }
@@ -129,5 +127,39 @@ public class TestGameplay {
         Person Jimmy = new Person("Jimmy");
         game.born(Jimmy, Jane, "Bobby");
         assertTrue(pop.get(0).isSibling(pop.get(1)));
+    }
+
+    @Test
+    public void reproduceDead() {
+        Person June = new Person("June");
+        Person Jeff = new Person("Jeff");
+        Gameplay game = new Gameplay(pop, "test");
+        game.die(Jeff);
+        assertEquals("Dead people can't reproduce!", Jeff.reproduce(June));
+    }
+
+    @Test
+    public void reproduceYoung() {
+        Person June = new Person("June", 15);
+        Person Jeff = new Person("Jeff", 16);
+        assertEquals("Knock it out, youngsters!", June.reproduce(Jeff));
+    }
+
+    @Test
+    public void reproduceSameSex() {
+        Person June = new Person("June", 30);
+        Person Danielle = new Person("Danielle", 30);
+        June.isFemale = true;
+        Danielle.isFemale = true;
+        assertEquals("These people are biological incapable of mating!", June.reproduce(Danielle));
+    }
+
+    @Test
+    public void reproduceSuccess() {
+        Person June = new Person("June", 30);
+        Person Jeff = new Person("Jeff", 35);
+        June.isFemale = true;
+        Jeff.isFemale = false;
+        assertEquals("Congratulations! Enter a name for your new child!", June.reproduce(Jeff));
     }
 }

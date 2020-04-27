@@ -2,7 +2,7 @@ import java.util.*;
 public class Person {
     private String name;
     public int age;
-    private Boolean isFemale;
+    public Boolean isFemale;
     private Person father;
     private Person mother;
     private Set<Person> children;
@@ -95,6 +95,7 @@ public class Person {
             System.out.println("Dead people can't reproduce!");
             return null;
         }
+        return null;
     }
 
     public void death(){
