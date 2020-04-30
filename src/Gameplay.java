@@ -29,7 +29,9 @@ public class Gameplay {
   }
 
   public static void born(){
-    born(null, null, null);
+    //born(null, null, "Ugly");
+    population.add(new Person(null, null, null));
+            totalPeople++;
   }
 
   //remove person from population

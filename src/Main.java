@@ -23,7 +23,7 @@ public class Main {
     for (int i = 0; i < popSize; i++){
       //person constructor to get the person
       System.out.println("What would you like to name your person? ");
-      String name = input.next();
+      String name = input.nextLine();
       person = new Person(name);
       //add the person to the game
       gamePopulation.add(i, person);
